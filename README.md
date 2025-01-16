@@ -1,4 +1,4 @@
-# Playwright Booking Demo
+# Playwright Booking Demo by Bryar H.D. Cole
 
 This repository demonstrates how to perform API testing using [Playwright](https://playwright.dev/), focusing on testing RESTful endpoints, validating HTTP requests and responses, and automating workflows. It includes examples of integration testing, status code checks, and response payload validation, with easy-to-read test reports.
 
