@@ -1,0 +1,19 @@
+{
+  "name": "playwright-booking-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@playwright/test": "^1.49.1",
+    "axios": "^1.7.9",
+    "playwright": "^1.49.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
