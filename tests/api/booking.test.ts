@@ -19,19 +19,37 @@ test.describe("CRUD Regression test", () => {
         expect(token).toBeTruthy();
     });
 
+    const first = TestData.getRandomFirstname();
+    const last = TestData.getRandomSurname();
+    const price = TestData.getRandomNumbers(3);
+    const bool = TestData.getRandomBoolean();
+    
+
     test('Create Booking (POST)', async ({ request }) =>{
         const requestResponse = await request.post('/booking', {
             data: {
-                firstname: TestData.getRandomFirstname(),
-                lastname: TestData.getRandomSurname(),
-                totalprice: TestData.getRandomNumbers(2),
-                depositpaid: TestData.getRandomBoolean(),
+                firstname: first,
+                lastname: last,
+                totalprice: price,
+                depositpaid: bool,
                 bookingdates: {
                   checkin: '2025-01-15',
                   checkout: '2025-01-20',
                 },
                 additionalneeds: 'Breakfast',
             },
-        })
-    })
+        });
+
+        expect(requestResponse.ok()).toBeTruthy();
+        const bookingData = await requestResponse.json();
+        bookingId = bookingData.bookingid;
+
+        expect(bookingData.booking).toMatchObject({
+            firstname: first,
+            lastname: last,
+            totalprice: price,
+            depositpaid: bool,
+            additionalneeds: 'Breakfast'
+        });
+    });
 });

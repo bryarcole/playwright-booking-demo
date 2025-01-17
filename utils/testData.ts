@@ -2,12 +2,12 @@ export class TestData {
 
     //@returns String of random numbers
     static getRandomNumbers(length: number = 10, min: number = 0, max: number = 9): string {
-        return Array.from({length}, () =>
+        return Array.from({ length }, () =>
         Math.floor(Math.random() * (min - max + 1 )) + min).join('')
     }
 
     static getRandomLetters(length: number = 5, isUpperCase = false): string {
-        return Array.from({length }, () => {
+        return Array.from({ length }, () => {
             const charCode = Math.floor(Math.random() * 26) + 97 // range from a to z 
             return isUpperCase ? String.fromCharCode(charCode).toUpperCase() :
             String.fromCharCode(charCode);
