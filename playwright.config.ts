@@ -9,7 +9,7 @@ export default defineConfig({
     projects:[
         {
             name: "API Tests",
-            testMatch: '/api/*.test.ts', //Match tests under api folder.
+            testMatch: '**/api/**/*.test.ts', //Match tests under api folder.
             use: {
                 baseURL: 'https://restful-booker.herokuapp.com'
             }
@@ -27,7 +27,7 @@ export default defineConfig({
         }
     ],
     use: {
-        //share context options
+        //shared  context options
         trace: 'retain-on-failure'
     },
     outputDir: 'test-results/',
