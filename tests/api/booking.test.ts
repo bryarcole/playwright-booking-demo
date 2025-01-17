@@ -25,7 +25,7 @@ test.describe("CRUD Regression test", () => {
     const bool = TestData.getRandomBoolean();
     
 
-    test('Create Booking (POST)', async ({ request }) =>{
+    test('Create Booking (POST)', async ({ request }) => {
         const requestResponse = await request.post('/booking', {
             data: {
                 firstname: first,
@@ -50,6 +50,24 @@ test.describe("CRUD Regression test", () => {
             totalprice: price,
             depositpaid: bool,
             additionalneeds: 'Breakfast'
+        });
+    });
+
+    test('GET Booking', async ({ request })=> {
+        const requestResponse = await request.get('/booking/${bookingId}')
+        expect(requestResponse.ok()).toBeTruthy();
+
+        const bookingDetails = await requestResponse.json();
+        expect(bookingDetails).toMatchObject({
+            firstname: first,
+            lastname: last,
+            totalprice: price,
+            depositpaid: bool,
+            additionalneeds: 'Breakfast',
+            bookingdates: {
+                checkin: '2025-01-15',
+                checkout: '2025-01-20',
+            },
         });
     });
 });

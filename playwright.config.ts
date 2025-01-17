@@ -27,7 +27,7 @@ export default defineConfig({
         }
     ],
     use: {
-        //share context options
+        //shared  context options
         trace: 'retain-on-failure'
     },
     outputDir: 'test-results/',

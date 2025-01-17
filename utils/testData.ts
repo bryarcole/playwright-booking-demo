@@ -19,8 +19,8 @@ export class TestData {
             "!@#$%^&*()_+[]{}|;:',.<>?/`~\\\"-="[Math.floor(Math.random() * 33)]).join('');
     }
 
-    static getRandomBoolean(): boolean {
-        return Math.random() < 0.5;
+    static getRandomBoolean(percentTrue: number = .5): boolean {
+        return Math.random() < percentTrue;
     }
 
     static getRandomFirstname(): string {
