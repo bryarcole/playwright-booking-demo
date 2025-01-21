@@ -1,4 +1,4 @@
-import { defineConfig } from "playwright/test";
+import { defineConfig, devices } from "playwright/test";
 
 export default defineConfig({
     testDir: './',
@@ -22,8 +22,12 @@ export default defineConfig({
                 headless: true,
                 screenshot: 'only-on-failure',
                 video: 'retain-on-failure',
-                baseURL: 'https://the-internet.herokuapp.com'
+                baseURL: 'https://the-internet.herokuapp.com',
             }
+        },
+        {
+            name: "Mobile Test",
+            testMatch: '**/mobile/**/*.test.ts'
         }
     ],
     use: {
